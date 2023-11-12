@@ -18,7 +18,7 @@ jobs:
      # with:
      #     tool: zola@0.17.2
     - name: Build and deploy
-      uses: shalzz/zola-deploy-action@v0.17.2
+      uses: shalzz/zola-deploy-action@master
       env:
         PAGES_BRANCH: gh-pages
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
