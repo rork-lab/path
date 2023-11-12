@@ -10,13 +10,15 @@ jobs:
   build:
     name: Publish site
     runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/master'
     steps:
     - name: Checkout master
       uses: actions/checkout@v4
-    - uses: taiki-e/install-action@v2
-      with:
-          tool: zola@0.17.2
-    #- name: Build and deploy
-    #  uses: shalzz/zola-deploy-action@v0.17.2
+    #- uses: taiki-e/install-action@v2
+     # with:
+     #     tool: zola@0.17.2
+    - name: Build and deploy
+      uses: shalzz/zola-deploy-action@v0.17.2
       env:
+        PAGES_BRANCH: gh-pages
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
